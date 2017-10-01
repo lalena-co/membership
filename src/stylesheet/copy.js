@@ -22,7 +22,7 @@ const copy = {
     ...fonts.abel,
   },
   h4: {
-    fontSize: '26px',
+    fontSize: '20px',
     ...fonts.abel,
   },
   h5: {

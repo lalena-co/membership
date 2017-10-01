@@ -1,24 +1,53 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
 import Text from 'components/Text';
+import Description from 'components/Description';
+import WritingHand from 'components/emojis/WritingHand';
 import v from 'vudu';
-import { breakpoints } from 'stylesheet';
+import { styles as s, breakpoints } from 'stylesheet';
 
 const localClasses = v({
   signUpView: {
+    '@composes': [
+      s.flex,
+      s.justifyCenter,
+      s.flexColumn,
+      s.alignCenter,
+    ],
     textAlign: 'center',
-    padding: '25px',
+    padding: '0 25px',
     [breakpoints.desktop]: {
-      padding: '50px',
+      padding: '0 50px',
     },
   },
-  title: {
-    marginBottom: '50px',
+  header: {
+    marginBottom: '20px',
   },
-  description: {
-    'p': {
-      marginBottom: '25px',
-    },
+  form: {
+    '@composes': [
+      s.flex,
+      s.flexColumn,
+      s.justifyCenter,
+    ],
+    marginBottom: '20px',
+    width: '85%',
+    [breakpoints.desktop]: {
+      width: '35%',
+    }
+  },
+  label: {
+    '@composes': [
+      s.label
+    ],
+  },
+  input: {
+    '@composes': [
+      s.input
+    ],
+  },
+  button: {
+    '@composes': [
+      s.button,
+    ],
   },
 });
 
@@ -42,33 +71,34 @@ class SignUpView extends Component {
 
   render = () => {
     const { email, password } = this.state;
-    const { user } = this.props;
 
     return (
       <div className={localClasses.signUpView}>
-        <Text variant={'h3'}>{'Sign Up'}</Text>
-        <NavLink to='/'>{'Cancel'}</NavLink>
+        <div className={localClasses.header}>
+          <WritingHand />
+          <Text variant={'h3'}>{'Sign Up'}</Text>
+        </div>
+        <Description />
         <form className={localClasses.form} onSubmit={this.handleSubmit}>
-          {user && user.code && (
-            <Text>{user.message}</Text>
-          )}
-          <label htmlFor={'email'}>{'Email'}</label>
+          <label className={localClasses.label} htmlFor={'email'}>{'Email'}</label>
           <input
+            className={localClasses.input}
             name={'email'}
             type={'email'}
             placeholder={'you@domain.com'}
             value={email}
             onChange={this.handleChange}
           />
-          <label htmlFor={'password'}>{'Password'}</label>
+          <label className={localClasses.label} htmlFor={'password'}>{'Password'}</label>
           <input
+            className={localClasses.input}
             name={'password'}
             type={'password'}
             placeholder={'password'}
             value={password}
             onChange={this.handleChange}
           />
-          <button type={'submit'}>{'Register'}</button>
+          <button className={localClasses.button} type={'submit'}>{'Register'}</button>
         </form>
       </div>
     );

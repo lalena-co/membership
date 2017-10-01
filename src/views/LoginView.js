@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import Text from 'components/Text';
+import Description from 'components/Description';
+import WritingHand from 'components/emojis/WritingHand';
+import Ticket from 'components/emojis/Ticket';
 import v from 'vudu';
 import { styles as s, breakpoints } from 'stylesheet';
 
@@ -13,10 +16,13 @@ const localClasses = v({
       s.alignCenter,
     ],
     textAlign: 'center',
-    padding: '25px',
+    padding: '0 25px',
     [breakpoints.desktop]: {
-      padding: '50px',
+      padding: '0 50px',
     },
+  },
+  header: {
+    marginBottom: '20px',
   },
   form: {
     '@composes': [
@@ -24,15 +30,38 @@ const localClasses = v({
       s.flexColumn,
       s.justifyCenter,
     ],
-    width: '25%',
-    'label': {
-      marginBottom: '5px',
-      textAlign: 'left',
-    },
-    'input': {
-      marginBottom: '20px',
+    marginBottom: '20px',
+    width: '85%',
+    [breakpoints.desktop]: {
+      width: '35%',
     }
   },
+  label: {
+    '@composes': [
+      s.label
+    ],
+  },
+  input: {
+    '@composes': [
+      s.input
+    ],
+  },
+  button: {
+    '@composes': [
+      s.button,
+    ],
+  },
+  smallWarningLink: {
+    '@composes': [
+      s.smallWarningLink,
+    ],
+    marginTop: '5px',
+  },
+  signUp: {
+    '@composes': [
+      s.navLink,
+    ],
+  }
 });
 
 class LoginView extends Component {
@@ -59,33 +88,45 @@ class LoginView extends Component {
 
     return (
       <div className={localClasses.loginView}>
-        <Text variant={'h3'}>{'Login'}</Text>
-        <NavLink to={'/sign-up'}>{'Sign Up'}</NavLink>
+        <div className={localClasses.header}>
+          <Ticket />
+          <Text variant={'h3'}>{'Login'}</Text>
+        </div>
+        <Description />
         <form className={localClasses.form} onSubmit={this.handleSubmit}>
           {user && user.code && (
             <Text>{user.message}</Text>
           )}
-          <label htmlFor={'email'}>{'Email'}</label>
+          <label className={localClasses.label} htmlFor={'email'}>{'Email'}</label>
           <input
+            className={localClasses.input}
             name={'email'}
             type={'email'}
             placeholder={'you@domain.com'}
             value={email}
             onChange={this.handleChange}
           />
-          <label htmlFor={'password'}>{'Password'}</label>
+          <label className={localClasses.label} htmlFor={'password'}>{'Password'}</label>
           <input
+            className={localClasses.input}
             name={'password'}
             type={'password'}
             placeholder={'password'}
             value={password}
             onChange={this.handleChange}
           />
-          <button disabled={!email.length} type={'submit'}>{'Login'}</button>
+          <button className={localClasses.button} disabled={!email.length} type={'submit'}>
+            {'Sign In'}
+          </button>
+          {email.length > 0 && (
+            <a className={localClasses.smallWarningLink} onClick={() => actions.resetPassword(email)}>{'Reset Password'}</a>
+          )}
         </form>
-        {email.length && (
-          <a onClick={() => actions.resetPassword(email)}>{'Reset Password'}</a>
-        )}
+
+        <NavLink className={localClasses.signUp} to={'/sign-up'}>
+          <WritingHand />
+          <span className={'text'}>{'Sign Up'}</span>
+        </NavLink>
       </div>
     );
   }

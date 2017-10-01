@@ -1,3 +1,6 @@
+import colors from './colors';
+import copy from './copy';
+
 const layout = {
   block: { display: 'block' },
   inlineBlock: { display: 'inline-block' },
@@ -34,6 +37,66 @@ const layout = {
   l0:              { left: 0 },
   r0:              { right: 0 },
   b0:              { bottom: 0 },
+
+  // theme
+  navLink: {
+    color: colors.black,
+    fontSize: '18px',
+    cursor: 'pointer',
+    textDecoration: 'none',
+    ...copy.abel,
+    ':hover': {
+      '.text': {
+        borderBottom: `1px solid ${colors.black}`,
+      },
+    },
+  },
+  label: {
+    fontSize: '12px',
+    marginBottom: '5px',
+    textAlign: 'left',
+    textTransform: 'lowercase',
+    ...copy.lato,
+  },
+  input: {
+    fontSize: '14px',
+    marginBottom: '20px',
+    border: `1px solid ${colors.black}`,
+    padding: '5px',
+    background: 'none',
+    ...copy.lato
+  },
+  button: {
+    backgroundColor: colors.black,
+    padding: '5px',
+    cursor: 'pointer',
+    color: colors.white,
+    borderRadius: '0',
+    border: `1px solid ${colors.black}`,
+    fontSize: '16px',
+    textTransform: 'uppercase',
+    ...copy.abel,
+    ':hover': {
+      backgroundColor: colors.purple,
+    },
+    ':disabled': {
+      opacity: '0.8',
+      cursor: 'not-allowed',
+      ':hover': {
+        backgroundColor: colors.black,
+      }
+    }
+  },
+  smallWarningLink: {
+    fontSize: '11px',
+    color: colors.purple,
+    textDecoration: 'none',
+    textTransform: 'lowercase',
+    cursor: 'pointer',
+    ':hover': {
+      color: colors.blue,
+    }
+  },
 };
 
 export default layout;

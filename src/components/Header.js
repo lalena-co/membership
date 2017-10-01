@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from 'components/svgs/Logo';
+import Navigation from 'components/Navigation';
 import v from 'vudu';
 import { styles as s, colors } from 'stylesheet';
 
@@ -8,9 +9,11 @@ const localClasses = v({
   header: {
     '@composes': [
       s.flex,
+      s.flexColumn,
+      s.alignCenter,
       s.justifyCenter,
     ],
-    padding: '20px',
+    padding: '20px 0',
     marginBottom: '20px',
     borderBottom: `1px solid ${colors.black}`,
   },
@@ -19,15 +22,17 @@ const localClasses = v({
       s.block,
     ],
     width: '10%',
+    marginBottom: '20px',
   }
 });
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className={localClasses.header}>
       <NavLink className={localClasses.link} to={'/'}>
         <Logo />
       </NavLink>
+      <Navigation {...props} />
     </header>
   );
 }

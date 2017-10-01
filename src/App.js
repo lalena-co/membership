@@ -88,10 +88,7 @@ class App extends Component {
 
     return (
       <div>
-        <Header />
-        {currentUser && (
-          <a onClick={actions.signOutUser}>{'Sign Out'}</a>
-        )}
+        <Header location={location} currentUser={currentUser} actions={actions} />
         { auth ? this.renderRoutes(location) : this.renderLoading()}
         <Footer />
       </div>
