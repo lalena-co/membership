@@ -1,7 +1,3 @@
-import breakpoints from './breakpoints';
-import colors from './colors';
-import copy from './copy';
-
 const layout = {
   block: { display: 'block' },
   inlineBlock: { display: 'inline-block' },
