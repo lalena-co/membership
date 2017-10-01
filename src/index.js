@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import promise from 'redux-promise';
+import thunk from 'redux-thunk';
 import registerServiceWorker from 'registerServiceWorker';
 
 // state
@@ -25,7 +26,7 @@ const store = createStore(
     router: routerReducer
   }),
   composeEnhancers(
-    applyMiddleware(promise, router),
+    applyMiddleware(promise, thunk, router),
   ),
 );
 
