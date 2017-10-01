@@ -85,11 +85,14 @@ export const registerUser = (email = '', password = '') => {
 
 export const deleteUser = (email = '') => {
   return (dispatch, getState) => {
-    const { auth } = getState();
-    const payload = auth.currentUser.delete();
+    const { auth, database } = getState();
+    const { currentUser } = auth;
+    const payload = currentUser.delete();
     return dispatch({
       type: DELETE_USER,
       payload,
+    }).then(() => {
+      return database.ref(`/users/${currentUser.uid}`).remove();
     });
   }
 }
