@@ -12,7 +12,7 @@ const localClasses = v({
 const SeedDescription = () => {
   return (
     <Text classes={localClasses.text}>
-      {'WARNING: You can only do this once. Make sure you have entered the correct Ethereum wallet address!'}
+      {'WARNING: You can only do this once. Make sure you have entered the correct Ethereum wallet address! To ensure you are distributed your Lalena equity, PLANT YOUR SEED before the October 9th deadline.'}
     </Text>
   );
 }
