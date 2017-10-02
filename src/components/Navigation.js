@@ -7,6 +7,7 @@ import WavingHand from 'components/emojis/WavingHand';
 import Television from 'components/emojis/Television';
 import Ticket from 'components/emojis/Ticket';
 import WritingHand from 'components/emojis/WritingHand';
+import QuestionMark from 'components/emojis/QuestionMark';
 
 import v from 'vudu';
 import { styles as s, colors } from 'stylesheet';
@@ -40,9 +41,18 @@ const Navigation = (props) => {
   const { actions, currentUser, location } = props;
   return (
     <nav className={localClasses.nav}>
-      <a className={localClasses.link} href='https://www.lalena.co/'>
+      <a className={localClasses.link} href={'https://www.lalena.co/'}>
         <Television />
         <span className={'text'}>{'Watchlist'}</span>
+      </a>
+      <a
+        className={localClasses.link}
+        target={'_blank'}
+        rel={'noopener'}
+        href={'https://medium.com/@lalena_co/how-to-add-lla-tokens-to-a-myetherwallet-account-2bf9561d1f63'}
+      >
+        <QuestionMark />
+        <span className={'text'}>{'Help'}</span>
       </a>
       <Switch location={location}>
         {currentUser ? [
