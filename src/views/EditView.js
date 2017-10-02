@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import Text from 'components/Text';
 import PointLeft from 'components/emojis/PointLeft';
 import v from 'vudu';
@@ -75,12 +75,14 @@ class EditView extends Component {
   handleEmailAction = (e) => {
     e.preventDefault();
     this.props.actions.updateEmail(this.state.email);
+    this.props.history.push('/');
   }
 
   handleWalletAction = (e) => {
     e.preventDefault();
     const { ethWalletId } = this.state;
     this.props.actions.saveWallet({ ethWalletId });
+    this.props.history.push('/');
   }
 
   handleChange = (event) => {
@@ -116,4 +118,4 @@ class EditView extends Component {
   }
 }
 
-export default EditView;
+export default withRouter(EditView);
