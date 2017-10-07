@@ -11,7 +11,7 @@ import QuestionMark from 'components/emojis/QuestionMark';
 import HelmetWithCross from 'components/emojis/HelmetWithCross';
 
 import v from 'vudu';
-import { styles as s, colors } from 'stylesheet';
+import { styles as s, breakpoints, colors } from 'stylesheet';
 
 const localClasses = v({
   nav: {
@@ -22,6 +22,12 @@ const localClasses = v({
     width: '100%',
     paddingTop: '20px',
     borderTop: `1px solid ${colors.black}`,
+  },
+  emoji: {
+    display: 'none',
+    [breakpoints.desktop]: {
+      display: 'inherit',
+    },
   },
   link: {
     '@composes': [
@@ -46,7 +52,7 @@ const Navigation = (props) => {
   return (
     <nav className={localClasses.nav}>
       <a className={localClasses.link} href={'https://www.lalena.co/'}>
-        <Television />
+        <span className={localClasses.emoji}><Television /></span>
         <span className={'text'}>{'Watchlist'}</span>
       </a>
       <a
@@ -55,7 +61,7 @@ const Navigation = (props) => {
         rel={'noopener'}
         href={'https://medium.com/@lalena_co/how-to-add-lla-tokens-to-a-myetherwallet-account-2bf9561d1f63'}
       >
-        <QuestionMark />
+        <span className={localClasses.emoji}><QuestionMark /></span>
         <span className={'text'}>{'Help'}</span>
       </a>
       <a
@@ -64,33 +70,33 @@ const Navigation = (props) => {
         rel={'noopener'}
         href={'https://www.islanenarelief.org/'}
       >
-        <HelmetWithCross />
+        <span className={localClasses.emoji}><HelmetWithCross /></span>
         <span className={'text'}>{'Hurricane Maria'}</span>
       </a>
       <Switch location={location}>
         {currentUser ? [
           <Route key={'membership'} exact path={Membership.path}>
             <a className={localClasses.link} onClick={actions.signOutUser}>
-              <WavingHand />
+              <span className={localClasses.emoji}><WavingHand /></span>
               <span className={'text'}>{'Sign Out'}</span>
             </a>
           </Route>,
           <Route key={'edit'} exact path={Edit.path}>
             <a className={localClasses.link} onClick={actions.signOutUser}>
-              <WavingHand />
+              <span className={localClasses.emoji}><WavingHand /></span>
               <span className={'text'}>{'Sign Out'}</span>
             </a>
           </Route>,
         ] : [
           <Route key={'login'} exact path={Login.path}>
             <NavLink className={localClasses.link} to={SignUp.path}>
-              <WritingHand />
+              <span className={localClasses.emoji}><WritingHand /></span>
               <span className={'text'}>{'Sign Up'}</span>
             </NavLink>
           </Route>,
           <Route key={'sign up'} exact path={SignUp.path}>
             <NavLink className={localClasses.link} to={Login.path}>
-              <Ticket />
+              <span className={localClasses.emoji}><Ticket /></span>
               <span className={'text'}>{'Login'}</span>
             </NavLink>
           </Route>,

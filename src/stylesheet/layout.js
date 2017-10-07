@@ -1,3 +1,4 @@
+import breakpoints from './breakpoints';
 import colors from './colors';
 import copy from './copy';
 
@@ -41,7 +42,7 @@ const layout = {
   // theme
   navLink: {
     color: colors.black,
-    fontSize: '18px',
+    fontSize: '12px',
     cursor: 'pointer',
     textDecoration: 'none',
     ...copy.abel,
@@ -49,6 +50,9 @@ const layout = {
       '.text': {
         borderBottom: `1px solid ${colors.black}`,
       },
+    },
+    [breakpoints.desktop]: {
+      fontSize: '18px'
     },
   },
   label: {
