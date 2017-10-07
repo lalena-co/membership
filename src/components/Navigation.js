@@ -26,7 +26,7 @@ const localClasses = v({
   emoji: {
     display: 'none',
     [breakpoints.desktop]: {
-      display: 'inherit',
+      display: 'inline',
     },
   },
   link: {
