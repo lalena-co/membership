@@ -103,7 +103,7 @@ class MembershipView extends Component {
             {!seed && (
               <SeedDescription />
             )}
-            {seed ? <Seed {...seed} /> : <CreateSeed handleCreate={actions.createSeed} />}
+            {seed && <Seed {...seed} />}
           </section>
         )}
 
