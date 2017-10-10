@@ -4,7 +4,6 @@ import ClinkingGlasses from 'components/emojis/ClinkingGlasses';
 import WhiteCheckmark from 'components/emojis/WhiteCheckmark';
 import Text from 'components/Text';
 import Seed from 'components/Seed';
-import CreateSeed from 'components/CreateSeed';
 import Wallet from 'components/Wallet';
 import SeedDescription from 'components/SeedDescription';
 import v from 'vudu';
