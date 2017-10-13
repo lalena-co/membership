@@ -1,7 +1,7 @@
 import React from 'react';
 import Text from 'components/Text';
 import v from 'vudu';
-import { styles as s, colors } from 'stylesheet';
+import { colors } from 'stylesheet';
 
 const localClasses = v({
   viewInstructions: {
