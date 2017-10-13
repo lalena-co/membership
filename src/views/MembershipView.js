@@ -6,6 +6,7 @@ import Text from 'components/Text';
 import Seed from 'components/Seed';
 import Wallet from 'components/Wallet';
 import SeedDescription from 'components/SeedDescription';
+import ViewInstructions from 'components/ViewInstructions';
 import v from 'vudu';
 import { styles as s, breakpoints, colors } from 'stylesheet';
 
@@ -94,6 +95,10 @@ class MembershipView extends Component {
         </section>
         <section className={localClasses.section}>
           <Wallet {...wallet} />
+        </section>
+
+        <section className={localClasses.section}>
+          <ViewInstructions />
         </section>
 
         {wallet && wallet.ethWalletId && (
