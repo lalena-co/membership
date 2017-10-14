@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import ClinkingGlasses from 'components/emojis/ClinkingGlasses';
 import WhiteCheckmark from 'components/emojis/WhiteCheckmark';
+import Seedling from 'components/emojis/Seedling';
+import Angel from 'components/emojis/Angel';
 import Text from 'components/Text';
 import Seed from 'components/Seed';
 import Wallet from 'components/Wallet';
+import AngelDescription from 'components/AngelDescription';
 import SeedDescription from 'components/SeedDescription';
 import ViewInstructions from 'components/ViewInstructions';
 import v from 'vudu';
@@ -37,6 +40,10 @@ const localClasses = v({
       s.justifyCenter,
       s.alignBase,
     ],
+  },
+  angel: {
+    border: `1px solid ${colors.purple}`,
+    padding: '20px',
   },
   seed: {
     border: `1px solid ${colors.green}`,
@@ -74,7 +81,7 @@ class MembershipView extends Component {
   handleDelete = () => this.props.actions.deleteUser();
 
   render = () => {
-    const { actions, user, seed, wallet } = this.props;
+    const { actions, angel, user, seed, wallet } = this.props;
 
     return (
       <div className={localClasses.membershipView}>
@@ -102,7 +109,18 @@ class MembershipView extends Component {
         </section>
 
         {wallet && wallet.ethWalletId && (
+          <section className={[localClasses.section, localClasses.angel].join(' ')}>
+            <Angel/>
+            <Text classes={localClasses.title} variant={'h5'}>{'Angel'}</Text>
+            {!angel && (
+              <AngelDescription />
+            )}
+          </section>
+        )}
+
+        {wallet && wallet.ethWalletId && (
           <section className={[localClasses.section, localClasses.seed].join(' ')}>
+            <Seedling/>
             <Text classes={localClasses.title} variant={'h5'}>{'Seed'}</Text>
             {!seed && (
               <SeedDescription />
