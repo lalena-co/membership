@@ -2,16 +2,12 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import ClinkingGlasses from 'components/emojis/ClinkingGlasses';
 import WhiteCheckmark from 'components/emojis/WhiteCheckmark';
-import Seedling from 'components/emojis/Seedling';
-import Angel from 'components/emojis/Angel';
 import Text from 'components/Text';
-import Seed from 'components/Seed';
 import Wallet from 'components/Wallet';
-import AngelDescription from 'components/AngelDescription';
-import SeedDescription from 'components/SeedDescription';
 import ViewInstructions from 'components/ViewInstructions';
+import DistributionEvent from 'components/DistributionEvent';
 import v from 'vudu';
-import { styles as s, breakpoints, colors } from 'stylesheet';
+import { styles as s, breakpoints } from 'stylesheet';
 
 const localClasses = v({
   membershipView: {
@@ -40,14 +36,6 @@ const localClasses = v({
       s.justifyCenter,
       s.alignBase,
     ],
-  },
-  angel: {
-    border: `1px solid ${colors.purple}`,
-    padding: '20px',
-  },
-  seed: {
-    border: `1px solid ${colors.green}`,
-    padding: '20px',
   },
   header: {
     marginBottom: '20px',
@@ -81,7 +69,7 @@ class MembershipView extends Component {
   handleDelete = () => this.props.actions.deleteUser();
 
   render = () => {
-    const { actions, angel, user, seed, wallet } = this.props;
+    const { actions, user, wallet } = this.props;
 
     return (
       <div className={localClasses.membershipView}>
@@ -108,26 +96,7 @@ class MembershipView extends Component {
           <ViewInstructions />
         </section>
 
-        {wallet && wallet.ethWalletId && (
-          <section className={[localClasses.section, localClasses.angel].join(' ')}>
-            <Angel/>
-            <Text classes={localClasses.title} variant={'h5'}>{'Angel'}</Text>
-            {!angel && (
-              <AngelDescription />
-            )}
-          </section>
-        )}
-
-        {wallet && wallet.ethWalletId && (
-          <section className={[localClasses.section, localClasses.seed].join(' ')}>
-            <Seedling/>
-            <Text classes={localClasses.title} variant={'h5'}>{'Seed'}</Text>
-            {!seed && (
-              <SeedDescription />
-            )}
-            {seed && <Seed {...seed} />}
-          </section>
-        )}
+        {wallet && wallet.ethWalletId && (<DistributionEvent {...this.props} />)}
 
         <a className={[localClasses.secondaryLink, localClasses.reset].join(' ')} onClick={() => actions.resetPassword(user.email)}>
           {'Reset Password'}

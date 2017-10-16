@@ -5,7 +5,7 @@ import { colors } from 'stylesheet';
 
 const localClasses = v({
   viewInstructions: {
-    backgroundColor: colors.blue,
+    backgroundColor: colors.purple,
     color: colors.white,
     padding: '20px',
     'span': {

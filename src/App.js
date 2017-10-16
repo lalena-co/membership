@@ -27,9 +27,11 @@ class App extends Component {
   componentWillMount = () => {
     const {
       authorizeApplication,
+      fetchFactories,
       initializeDatabase,
     } = this.props.actions;
     authorizeApplication();
+    fetchFactories();
     initializeDatabase();
   }
 

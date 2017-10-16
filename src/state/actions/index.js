@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import request from 'axios';
 import handleErrors from 'utils/handleErrors';
 
 export const AUTH = 'AUTH';
@@ -11,6 +12,9 @@ export const UPDATE_USER = 'UPDATE_USER';
 export const VERIFY_USER = 'VERIFY_USER';
 export const RESET_PASSWORD = 'RESET_PASSWORD';
 export const UPDATE_EMAIL = 'UPDATE_EMAIL';
+
+export const FETCH_FACTORIES = 'FETCH_FACTORIES';
+export const FETCH_FACTORY = 'FETCH_FACTORY';
 
 export const FETCH_WALLET = 'FETCH_WALLET';
 export const SAVE_WALLET = 'SAVE_WALLET';
@@ -36,6 +40,37 @@ firebase.initializeApp({
 
 const auth = firebase.auth();
 const database = firebase.database();
+
+const EXPLORER_API = 'https://api.ethplorer.io';
+const LLA_CONTRACT = '0x1db186898bccde66fa64a50e4d81078951a30dbe';
+const FACTORY_ADDRESS = '0xfC0aEe94Bf95cB29babB1182E6C62D5b378834E4';
+
+export const fetchFactories = () => {
+  return (dispatch) => {
+    const payload = Promise.all([
+      dispatch(fetchFactory(FACTORY_ADDRESS, 'angel')),
+    ]);
+    return dispatch({
+      type: FETCH_FACTORIES,
+      payload,
+    });
+  }
+}
+
+export const fetchFactory = (id, key) => {
+  return (dispatch) => {
+    const payload = request
+      .get(`${EXPLORER_API}/getAddressInfo/${id}?token=${LLA_CONTRACT}&apiKey=freekey`)
+      .then(({ data }) => {
+        return { ...data, key };
+      });
+    return dispatch({
+      data: key,
+      type: FETCH_FACTORY,
+      payload,
+    });
+  }
+}
 
 export const authorizeApplication = () => {
   return (dispatch) => {
