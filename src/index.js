@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import promise from 'redux-promise';
+import promiseMiddleware from 'redux-promise-middleware';
 import thunk from 'redux-thunk';
 import registerServiceWorker from 'registerServiceWorker';
 
@@ -26,7 +26,7 @@ const store = createStore(
     router: routerReducer
   }),
   composeEnhancers(
-    applyMiddleware(promise, thunk, router),
+    applyMiddleware(promiseMiddleware(), thunk, router),
   ),
 );
 

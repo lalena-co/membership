@@ -16,7 +16,7 @@
     "react-scripts": "1.0.14",
     "react-social-icons": "^2.7.0",
     "redux": "^3.7.2",
-    "redux-promise": "^0.5.3",
+    "redux-promise-middleware": "^4.2.1",
     "redux-thunk": "^2.2.0",
     "vudu": "^1.8.9"
   },
