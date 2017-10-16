@@ -23,6 +23,10 @@ const Text = (props) => {
       return <h3 style={style} className={combined}>{children}</h3>;
     case 'h4':
       return <h4 style={style} className={combined}>{children}</h4>;
+    case 'h5':
+      return <h5 style={style} className={combined}>{children}</h5>;
+    case 'h6':
+      return <h6 style={style} className={combined}>{children}</h6>;
     case 'span':
       return <span style={style} className={combined}>{children}</span>;
     default:

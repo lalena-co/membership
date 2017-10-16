@@ -31,6 +31,12 @@ const copy = {
     fontWeight: 'bold',
     ...fonts.abel,
   },
+  h6: {
+    fontSize: '12px',
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    ...fonts.abel,
+  },
   p: {
     fontSize: '14px',
     ...fonts.lato,
