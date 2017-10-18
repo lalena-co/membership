@@ -6,6 +6,7 @@ import { colors } from 'stylesheet';
 const localClasses = v({
   text: {
     color: colors.white,
+    marginBottom: '20px',
   }
 });
 

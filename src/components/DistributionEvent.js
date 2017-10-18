@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LoadingFactory from 'components/LoadingFactory';
 import Factory from 'components/Factory';
+import FactoryCredit from 'components/FactoryCredit';
 import AngelDescription from 'components/AngelDescription';
 import SeedDescription from 'components/SeedDescription';
 import Seedling from 'components/emojis/Seedling';
@@ -73,6 +74,7 @@ class DistributionEvent extends Component {
             {factories.angel ? (
               <Factory { ...factories.angel } title={'Angel'} />
             ) : <LoadingFactory />}
+            <FactoryCredit />
           </aside>
           <section key={'angel'} className={[localClasses.section, localClasses.angel].join(' ')}>
             <Angel/>
@@ -86,6 +88,7 @@ class DistributionEvent extends Component {
             {factories.seed ? (
               <Factory { ...factories.seed } title={'Seed'} />
             ) : <LoadingFactory dark />}
+            <FactoryCredit />
           </aside>
           <section key={'seed'} className={[localClasses.section, localClasses.seed].join(' ')}>
             <Seedling/>
