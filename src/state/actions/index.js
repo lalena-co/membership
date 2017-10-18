@@ -43,12 +43,14 @@ const database = firebase.database();
 
 const EXPLORER_API = 'https://api.ethplorer.io';
 const LLA_CONTRACT = '0x1db186898bccde66fa64a50e4d81078951a30dbe';
-const FACTORY_ADDRESS = '0xfC0aEe94Bf95cB29babB1182E6C62D5b378834E4';
+const SEED_FACTORY_ADDRESS = '0x0A96627FB4b404aAB5167Fd3fA5369055E3D976E';
+const ANGEL_FACTORY_ADDRESS = '0xfC0aEe94Bf95cB29babB1182E6C62D5b378834E4';
 
 export const fetchFactories = () => {
   return (dispatch) => {
     const payload = Promise.all([
-      dispatch(fetchFactory(FACTORY_ADDRESS, 'angel')),
+      dispatch(fetchFactory(SEED_FACTORY_ADDRESS, 'seed')),
+      dispatch(fetchFactory(ANGEL_FACTORY_ADDRESS, 'angel')),
     ]);
     return dispatch({
       type: FETCH_FACTORIES,

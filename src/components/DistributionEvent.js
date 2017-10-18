@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import AngelFactory from 'components/AngelFactory';
+import LoadingFactory from 'components/LoadingFactory';
+import Factory from 'components/Factory';
 import AngelDescription from 'components/AngelDescription';
 import SeedDescription from 'components/SeedDescription';
 import Seedling from 'components/emojis/Seedling';
@@ -22,6 +23,9 @@ const localClasses = v({
         s.flexRow,
       ],
     },
+  },
+  title: {
+    marginBottom: '20px',
   },
   factory: {
     padding: '20px',
@@ -52,6 +56,10 @@ const localClasses = v({
   seed: {
     border: `1px solid ${colors.green}`,
   },
+  seedFactory: {
+    backgroundColor: colors.green,
+    color: colors.black,
+  },
 });
 
 class DistributionEvent extends Component {
@@ -61,20 +69,24 @@ class DistributionEvent extends Component {
     return (
       <div>
         <div className={localClasses.round}>
-          {factories.angel && (
-            <aside className={[localClasses.factory, localClasses.angelFactory].join(' ')}>
-              <AngelFactory { ...factories.angel } />
-            </aside>
-          )}
+          <aside className={[localClasses.factory, localClasses.angelFactory].join(' ')}>
+            {factories.angel ? (
+              <Factory { ...factories.angel } title={'Angel'} />
+            ) : <LoadingFactory />}
+          </aside>
           <section key={'angel'} className={[localClasses.section, localClasses.angel].join(' ')}>
             <Angel/>
             <Text classes={localClasses.title} variant={'h5'}>{'Angel'}</Text>
-
             <AngelDescription />
           </section>
         </div>
 
         <div className={localClasses.round}>
+          <aside className={[localClasses.factory, localClasses.seedFactory].join(' ')}>
+            {factories.seed ? (
+              <Factory { ...factories.seed } title={'Seed'} />
+            ) : <LoadingFactory dark />}
+          </aside>
           <section key={'seed'} className={[localClasses.section, localClasses.seed].join(' ')}>
             <Seedling/>
             <Text classes={localClasses.title} variant={'h5'}>{'Seed'}</Text>

@@ -8,6 +8,7 @@ const localClasses = v({
   },
   id: {
     wordBreak: 'break-all',
+    fontSize: '10px',
     marginBottom: '20px',
   },
   amount: {
