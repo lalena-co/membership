@@ -20,7 +20,7 @@ const Description = () => {
   return (
     <div className={localClasses.description}>
       <Text>
-        {'Lalena is an open source venture capital club and agency. We elevate platforms for everyone; online and offline.'}
+        {'Lalena is an open source venture capital club and digital agency. We elevate platforms for everyone - online and offline.'}
       </Text>
     </div>
   );
