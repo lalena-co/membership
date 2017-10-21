@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-snapshot';
 import promiseMiddleware from 'redux-promise-middleware';
 import thunk from 'redux-thunk';
 import registerServiceWorker from 'registerServiceWorker';
@@ -31,7 +31,7 @@ const store = createStore(
 );
 
 // render(
-ReactDOM.render(
+render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <App />
