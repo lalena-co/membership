@@ -51,7 +51,7 @@ const Navigation = (props) => {
   const { actions, currentUser, location } = props;
   return (
     <nav className={localClasses.nav}>
-      <a className={localClasses.link} href={'https://www.lalena.co/'}>
+      <a className={localClasses.link} href={'https://watchlist.lalena.co/'}>
         <span className={localClasses.emoji}><Television /></span>
         <span className={'text'}>{'Watchlist'}</span>
       </a>
