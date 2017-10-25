@@ -1,3 +1,4 @@
+import angel from './angel';
 import auth from './auth';
 import database from './database';
 import factories from './factories';
@@ -6,6 +7,7 @@ import user from './user';
 import wallet from './wallet';
 
 export default {
+  angel,
   auth,
   database,
   factories,

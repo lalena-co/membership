@@ -10,12 +10,12 @@ const localClasses = v({
   }
 });
 
-const CreateSeed = (props) => {
+const CreateAngel = (props) => {
   return (
     <div>
-      <a className={localClasses.link} onClick={props.handleCreate}>{'Plant Your Seed'}</a>
+      <a className={localClasses.link} onClick={props.handleCreate}>{'Stake Your Claim'}</a>
     </div>
   );
 }
 
-export default CreateSeed;
+export default CreateAngel;

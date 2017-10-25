@@ -20,7 +20,8 @@ export const FETCH_WALLET = 'FETCH_WALLET';
 export const SAVE_WALLET = 'SAVE_WALLET';
 
 export const FETCH_SEED = 'FETCH_SEED';
-export const CREATE_SEED = 'CREATE_SEED';
+export const FETCH_ANGEL = 'FETCH_ANGEL';
+export const CREATE_ANGEL = 'CREATE_ANGEL';
 
 const FIREBASE_API_KEY = process.env.REACT_APP_FIREBASE_API_KEY;
 const FIREBASE_AUTH_DOMAIN = process.env.REACT_APP_FIREBASE_AUTH_DOMAIN;
@@ -226,16 +227,30 @@ export const fetchSeed = () => {
   }
 }
 
-export const createSeed = () => {
+export const fetchAngel = () => {
+  return (dispatch, getState) => {
+    const { auth, database } = getState();
+    const { uid } = auth.currentUser;
+    const angelRef = database.ref(`/angels/${uid}/distribution`);
+    return angelRef.on('value', (snapshot) => {
+      return dispatch({
+        type: FETCH_ANGEL,
+        payload: snapshot.val(),
+      });
+    });
+  }
+}
+
+export const createAngel = () => {
   return (dispatch, getState) => {
     const { auth, wallet } = getState();
     const { uid } = auth.currentUser;
-    const payload = database.ref(`/users/${uid}/seed`).set({
+    const payload = database.ref(`/angels/${uid}/distribution`).set({
       ethWalletId: wallet.ethWalletId,
       issued: 0,
     });
     return dispatch({
-      type: CREATE_SEED,
+      type: CREATE_ANGEL,
       payload,
     });
   }

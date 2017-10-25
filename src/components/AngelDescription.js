@@ -12,7 +12,7 @@ const localClasses = v({
 const AngelDescription = () => {
   return (
     <Text classes={localClasses.text}>
-      {'Details about staking your claim in our Angel round will be available soon!'}
+      {'WARNING: You can only do this once. Make sure you have entered the correct Ethereum wallet address! To ensure you are distributed your staked LLA amount, STAKE YOUR CLAIM before the November 10th deadline.'}
     </Text>
   );
 }

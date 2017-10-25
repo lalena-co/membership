@@ -5,8 +5,10 @@ import FactoryCredit from 'components/FactoryCredit';
 import AngelDescription from 'components/AngelDescription';
 import SeedDescription from 'components/SeedDescription';
 import Seedling from 'components/emojis/Seedling';
-import Angel from 'components/emojis/Angel';
+import AngelEmoji from 'components/emojis/Angel';
 import Text from 'components/Text';
+import Angel from 'components/Angel';
+import CreateAngel from 'components/CreateAngel';
 import Seed from 'components/Seed';
 import v from 'vudu';
 import { styles as s, breakpoints, colors } from 'stylesheet';
@@ -66,7 +68,7 @@ const localClasses = v({
 class DistributionEvent extends Component {
 
   render = () => {
-    const { factories, seed } = this.props;
+    const { actions, angel, factories, seed } = this.props;
     return (
       <div>
         <div className={localClasses.round}>
@@ -77,9 +79,12 @@ class DistributionEvent extends Component {
             <FactoryCredit />
           </aside>
           <section key={'angel'} className={[localClasses.section, localClasses.angel].join(' ')}>
-            <Angel/>
+            <AngelEmoji/>
             <Text classes={localClasses.title} variant={'h5'}>{'Angel'}</Text>
-            <AngelDescription />
+            {!angel && (
+               <AngelDescription />
+             )}
+            {angel ? <Angel {...angel} /> : <CreateAngel handleCreate={actions.createAngel} />}
           </section>
         </div>
 

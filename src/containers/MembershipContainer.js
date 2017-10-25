@@ -9,8 +9,9 @@ import MembershipView from 'views/MembershipView';
 class MembershipContainer extends Component {
 
   componentDidMount = () => {
-    const { actions, seed, wallet } = this.props;
+    const { actions, angel, seed, wallet } = this.props;
     !wallet && actions.fetchWallet();
+    !angel && actions.fetchAngel();
     !seed && actions.fetchSeed();
   }
 
