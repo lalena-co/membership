@@ -22,9 +22,9 @@ const localClasses = v({
 const Seed = (props) => {
   return (
     <div>
-      <Text classes={localClasses.title} variant={'h5'}>{`Seeded Address:`}</Text>
+      <Text classes={localClasses.title} variant={'h5'}>{`Seed Wallet:`}</Text>
       <Text classes={localClasses.id}>{props.ethWalletId || 'n/a'}</Text>
-      <Text classes={localClasses.amount}>{`${props.issued} LLA`}</Text>
+      <Text classes={localClasses.amount}>{`${props.issued} LLA issued`}</Text>
       <Text classes={localClasses.description}>
         {'Seeded LLA closed distribution on October 9th, 2017 at 17:00.'}
       </Text>
