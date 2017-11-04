@@ -29,9 +29,9 @@ const localClasses = v({
 const Header = (props) => {
   return (
     <header className={localClasses.header}>
-      <NavLink className={localClasses.link} to={'https://www.lalena.co'}>
+      <a className={localClasses.link} href={'https://www.lalena.co'}>
         <Logo />
-      </NavLink>
+      </a>
       <Navigation {...props} />
     </header>
   );
