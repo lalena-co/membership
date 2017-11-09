@@ -6,6 +6,7 @@ import Text from 'components/Text';
 import Wallet from 'components/Wallet';
 import ViewInstructions from 'components/ViewInstructions';
 import DistributionEvent from 'components/DistributionEvent';
+import MetaMaskStatus from 'components/MetaMaskStatus';
 import v from 'vudu';
 import { styles as s, breakpoints } from 'stylesheet';
 
@@ -78,6 +79,7 @@ class MembershipView extends Component {
           <Text variant={'h3'}>{'Membership'}</Text>
           <NavLink className={localClasses.secondaryLink} to={'/edit'}>{'Edit'}</NavLink>
         </div>
+        <MetaMaskStatus />
         <section className={[localClasses.section, localClasses.email].join(' ')}>
           <Text variant={'h4'}>{user.email}</Text>
           {user.emailVerified ? (
