@@ -8,7 +8,6 @@ import Seedling from 'components/emojis/Seedling';
 import AngelEmoji from 'components/emojis/Angel';
 import Text from 'components/Text';
 import Angel from 'components/Angel';
-import CreateAngel from 'components/CreateAngel';
 import Seed from 'components/Seed';
 import v from 'vudu';
 import { styles as s, breakpoints, colors } from 'stylesheet';
@@ -68,7 +67,7 @@ const localClasses = v({
 class DistributionEvent extends Component {
 
   render = () => {
-    const { actions, angel, factories, seed } = this.props;
+    const { angel, factories, seed } = this.props;
     return (
       <div>
         <div className={localClasses.round}>
@@ -84,7 +83,7 @@ class DistributionEvent extends Component {
             {!angel && (
                <AngelDescription />
              )}
-            {angel ? <Angel {...angel} /> : <CreateAngel handleCreate={actions.createAngel} />}
+            {angel && <Angel {...angel} />}
           </section>
         </div>
 

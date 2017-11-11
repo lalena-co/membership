@@ -26,7 +26,7 @@ const Angel = (props) => {
       <Text classes={localClasses.id}>{props.ethWalletId || 'n/a'}</Text>
       <Text classes={localClasses.amount}>{`${props.issued} LLA issued`}</Text>
       <Text classes={localClasses.description}>
-        {'The Angel Factory will close the staking pool and begin distribution on November 10th, 2017 at 17:00. Please allow up to 72 hours after the closing date for distribution to your Ethereum wallet.'}
+        {'The Angel Factory closed the staking pool and began distribution on November 10th, 2017 at 17:00. Please allow up to 72 hours after the closing date for distribution to your Ethereum wallet.'}
       </Text>
     </div>
   );
