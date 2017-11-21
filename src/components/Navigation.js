@@ -8,7 +8,6 @@ import Television from 'components/emojis/Television';
 import Ticket from 'components/emojis/Ticket';
 import WritingHand from 'components/emojis/WritingHand';
 import QuestionMark from 'components/emojis/QuestionMark';
-import HelmetWithCross from 'components/emojis/HelmetWithCross';
 
 import v from 'vudu';
 import { styles as s, breakpoints, colors } from 'stylesheet';
@@ -35,9 +34,6 @@ const localClasses = v({
     ],
     padding: '0 10px',
   },
-  relief: {
-    color: 'red',
-  }
 });
 
 const {
@@ -63,15 +59,6 @@ const Navigation = (props) => {
       >
         <span className={localClasses.emoji}><QuestionMark /></span>
         <span className={'text'}>{'Help'}</span>
-      </a>
-      <a
-        className={[localClasses.link, localClasses.relief].join(' ')}
-        target={'_blank'}
-        rel={'noopener'}
-        href={'https://www.islanenarelief.org/'}
-      >
-        <span className={localClasses.emoji}><HelmetWithCross /></span>
-        <span className={'text'}>{'Hurricane Maria'}</span>
       </a>
       <Switch location={location}>
         {currentUser ? [
