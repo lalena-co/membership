@@ -7,7 +7,6 @@ import * as actions from 'state/actions';
 
 import Loading from 'components/Loading';
 import Header from 'components/Header';
-import Footer from 'components/Footer';
 
 // containers
 import { containers } from 'config';
@@ -92,7 +91,6 @@ class App extends Component {
       <div>
         <Header location={location} currentUser={currentUser} actions={actions} />
         { auth ? this.renderRoutes(location) : this.renderLoading()}
-        <Footer />
       </div>
     );
   }

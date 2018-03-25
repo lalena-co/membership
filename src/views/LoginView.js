@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
 import Text from 'components/Text';
 import Description from 'components/Description';
-import WritingHand from 'components/emojis/WritingHand';
 import Ticket from 'components/emojis/Ticket';
 import v from 'vudu';
 import { styles as s, breakpoints } from 'stylesheet';
@@ -122,11 +120,6 @@ class LoginView extends Component {
             <a className={localClasses.smallWarningLink} onClick={() => actions.resetPassword(email)}>{'Reset Password'}</a>
           )}
         </form>
-
-        <NavLink className={localClasses.signUp} to={'/sign-up'}>
-          <WritingHand />
-          <span className={'text'}>{'Sign Up'}</span>
-        </NavLink>
       </div>
     );
   }

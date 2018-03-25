@@ -4,9 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { containers } from 'config';
 
 import WavingHand from 'components/emojis/WavingHand';
-import Television from 'components/emojis/Television';
 import Ticket from 'components/emojis/Ticket';
-import WritingHand from 'components/emojis/WritingHand';
 import QuestionMark from 'components/emojis/QuestionMark';
 
 import v from 'vudu';
@@ -47,10 +45,6 @@ const Navigation = (props) => {
   const { actions, currentUser, location } = props;
   return (
     <nav className={localClasses.nav}>
-      <a className={localClasses.link} href={'https://watchlist.lalena.co/'}>
-        <span className={localClasses.emoji}><Television /></span>
-        <span className={'text'}>{'Watchlist'}</span>
-      </a>
       <a
         className={localClasses.link}
         target={'_blank'}
@@ -74,20 +68,14 @@ const Navigation = (props) => {
               <span className={'text'}>{'Sign Out'}</span>
             </a>
           </Route>,
-        ] : [
-          <Route key={'login'} exact path={Login.path}>
-            <NavLink className={localClasses.link} to={SignUp.path}>
-              <span className={localClasses.emoji}><WritingHand /></span>
-              <span className={'text'}>{'Sign Up'}</span>
-            </NavLink>
-          </Route>,
+        ] : (
           <Route key={'sign up'} exact path={SignUp.path}>
             <NavLink className={localClasses.link} to={Login.path}>
               <span className={localClasses.emoji}><Ticket /></span>
               <span className={'text'}>{'Login'}</span>
             </NavLink>
-          </Route>,
-        ]}
+          </Route>
+        )}
 
       </Switch>
     </nav>
